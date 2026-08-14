@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sesli Kitap</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="main-wrapper">
+
+<div class="player">
+
+<div>
+🎧 Sesli Kitap
+</div>
+
+<div>
+700+ sayfa stabil sürüm
+</div>
+
+<button
+class="main-btn"
+onclick="syncBook()"
+>
+📚 Hazırlanan kitabı bağla
+</button>
+
+<div>
+<b>PDF Linki</b>
+</div>
+
+<input
+id="pdfUrl"
+class="url-input"
+type="text"
+placeholder="PDF linki yapıştır"
+/>
+
+<button
+class="main-btn"
+onclick="prepareFromUrl()"
+>
+🌐 Linkten Hazırla
+</button>
+
+<div class="controls-grid">
+
+<button onclick="playAudio()">
+▶️ Play
+</button>
+
+<button onclick="pauseAudio()">
+⏸ Pause
+</button>
+
+<button onclick="resumeAudio()">
+🔁 Resume
+</button>
+
+<button onclick="stopAudio()">
+⏹ Stop
+</button>
+
+<button onclick="prevChunk()">
+⏮ Prev
+</button>
+
+<button onclick="nextChunk()">
+⏭ Next
+</button>
+
+</div>
+<div class="status-box">
+
+<div>
+<b>Hazırlık durumu:</b>
+</div>
+
+<div id="preparedText">
+Kontrol edilmedi
+</div>
+
+<div>
+<b>Bağlantı durumu:</b>
+</div>
+
+<div id="bindingText">
+Bağlanmadı
+</div>
+
+<div>
+<b>Bağlantı ilerlemesi:</b>
+</div>
+
+<div class="track">
+<div
+id="bindingFill"
+class="fill">
+</div>
+</div>
+
+<div
+id="bindingPct"
+class="pct">
+0%
+</div>
+
+<div
+id="bindingStep"
+class="pct">
+Henüz başlamadı
+</div>
+
+</div>
+
+<div class="status-box">
+
+<div>
+<b>Dosya:</b>
+<span id="metaFile">-</span>
+</div>
+
+<div>
+<b>Toplam sayfa:</b>
+<span id="metaPages">-</span>
+</div>
+
+<div>
+<b>Toplam chunk:</b>
+<span id="metaChunks">-</span>
+</div>
+
+<div>
+<b>Toplam kelime:</b>
+<span id="metaWords">-</span>
+</div>
+
+<div>
+<b>Aktif bölüm:</b>
+<span id="activeChunk">-</span>
+</div>
+
+</div>
+
+<br>
+
+<div>
+<b>Dil</b>
+</div>
+
+<select
+id="langSelect"
+class="lang-select"
+>
+
+<option value="tr-TR">
+Türkçe
+</option>
+
+<option value="en-US">
+English
+</option>
+
+</select>
+
+<br><br>
+
+<div>Hız</div>
+
+<input
+id="rateSlider"
+class="range"
+type="range"
+min="0.5"
+max="2"
+step="0.1"
+value="1"
+/>
+
+<div id="rateText">1.0x</div>
+
+<br>
+
+<div>Ses</div>
+<input
+id="volumeSlider"
+class="range"
+type="range"
+min="0"
+max="1"
+step="0.1"
+value="1"
+/>
+
+<div id="volumeText">100%</div>
+
+</div>
+
+<div class="reader-shell">
+
+<div
+class="text-panel"
+id="textPanel"
+>
+
+Metin burada görünecek.
+
+</div>
+
+</div>
+
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>
