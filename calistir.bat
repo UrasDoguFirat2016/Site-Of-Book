@@ -1,24 +1,19 @@
 @echo off
-title Sesli Kitap
-cd /d "%~dp0"
+title Vercel Proje Guncelleme
 
-echo ========================================
-echo       SESLI KITAP BASLATILIYOR
-echo ========================================
+echo ==============================
+echo   Vercel Projesi GitHub'a
+echo   Gonderiliyor...
+echo ==============================
 echo.
 
-where py >nul 2>nul
-if %errorlevel%==0 (
-    set "PY=py"
-) else (
-    set "PY=python"
-)
-
-%PY% -m pip install -r requirements.txt
+git add .
+git commit -m "PyMuPDF eklendi ve proje guncellendi"
+git push
 
 echo.
-echo Sunucu baslatiliyor...
-start "" http://127.0.0.1:5000
-%PY% app.py
-
+echo ==============================
+echo   TAMAMLANDI!
+echo ==============================
+echo.
 pause
